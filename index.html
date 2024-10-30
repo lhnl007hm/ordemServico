@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Atividades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>
+        <img src="/imagens/jciLogo.png" alt="Ícone JCI" width="180" height="80" style="vertical-align: middle; margin-right: 10px;">
+    </h1>
+    
+    <form id="form">
+        <label for="nOS">Nº OS:</label>
+        <input type="number" id="nOS" placeholder="Digite o Nº da OS..." required min="000001" max="999999" oninput="limitLength(this)" maxlength="6">
+
+
+        <label for="dataDia">Data:</label>
+        <input type="date" id="dataDia" required>
+
+        <label for="contrato">Selecione o Contrato:</label>
+        <select id="contrato" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="PZL">PZL</option>
+            <option value="CEIC">CEIC</option>
+            <option value="CAT">CAT</option>
+        </select>
+
+        <label for="endereco">Endereço:</label>
+        <span id="endOutput"></span>
+
+        <label for="estado">Estado:</label>
+        <span id="estOutput"></span>
+
+        <label>Tipo de Serviço:</label>
+        <div class="checkbox-container">
+            <label>
+                <input type="radio" name="tpServico" id="preventiva"> Preventiva
+            </label>
+            <label>
+                <input type="radio" name="tpServico" id="corretiva"> Corretiva
+            </label>
+            <label>
+                <input type="radio" name="tpServico" id="melhoria"> Melhoria
+            </label>
+        </div>
+
+        <!-- <label for="turno">Turno:</label>
+        <select id="turno" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Diurno">Diurno</option>
+            <option value="Noturno">Noturno</option>
+        </select> -->
+
+        <label for="equipamento">Equipamento:</label>
+        <input type="text" id="equipamento" placeholder="Informe o nome do equipamento..." maxlength="100" required>
+
+
+        <label for="descEquip">Descrição Equipamento:</label>
+        <textarea id="descEquip" rows="4" cols="50" placeholder="Informe a descrição do equipamento aqui..." required></textarea>
+
+        <label for="TAGEquipamento">TAG do Equipamento:</label>
+        <input type="text" id="TAGEquipamento" placeholder="Informe a TAG do equipamento..." maxlength="100" required>
+
+        <label for="fotoInput">Adicionar Foto:</label>
+        <input type="file" id="fotoInput" required>
+
+        <label for="avariado">Avariado:</label>
+        <select id="avariado" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <label for="equiNec">Equip. Necessário:</label>
+        <select id="equiNec" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>        
+
+        <label for="alimEntrada">Aliment. Entrada:</label>
+        <input type="text" id="alimEntrada" maxlength="100" required>
+
+        <label for="alimCom">Aliment. Comunicação:</label>
+        <input type="text" id="alimCom" maxlength="100" required>
+
+        <label for="alimOpe">Aliment. Operação:</label>
+        <input type="text" id="alimOpe" maxlength="100" required>
+
+        <label for="limpeza">Limpeza:</label>
+        <select id="limpeza" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select> 
+
+        <label for="ledsSin">Leds de Sinalização:</label>
+        <select id="ledsSin" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select> 
+
+        <label for="reapBornes">Reaperto Bornes:</label>
+        <select id="reapBornes" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <label for="equipAfetados">Equipamentos Afetados:</label>
+        <select id="equipAfetados" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" rows="4" cols="50" placeholder="Descreva a manutenção..." required></textarea>
+
+        <label for="sitOS">Situação OS:</label>
+        <select id="sitOS" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim">Finalizado</option>
+            <option value="Não">Em Andamento</option>
+        </select>
+
+        <label for="dataProx">Data:</label>
+        <input type="date" id="dataProx" required>
+
+        <button type="button" onclick="gerarRelatorio()">Gerar Relatório</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
