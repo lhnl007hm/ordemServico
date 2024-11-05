@@ -14,11 +14,11 @@ document.getElementById('contrato').addEventListener('change', function() {
                 break;
             case 'CEIC':
                 endOutput.textContent = 'Rua B';
-                estOutput.textContent = 'SP';
-                break;
-            case 'CAT':
-                endOutput.textContent = 'Rua C';
                 estOutput.textContent = 'RJ';
+                break;
+            case 'LMB':
+                endOutput.textContent = 'Avenida Paulista, 1938';
+                estOutput.textContent = 'SP';
                 break;
         }
     }
